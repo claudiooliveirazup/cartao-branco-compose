@@ -21,3 +21,8 @@ Para parar os serviços execute o script:
 ou
 
 `docker-compose -f compose/nosso_cartao.yaml stop`
+
+# TO-DO
+
+* Configurar Prometheus
+* Configurar Grafana
