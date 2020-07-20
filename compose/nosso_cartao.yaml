@@ -40,6 +40,8 @@ services:
     - "18443:8443"
     - "18080:8080"
     - "19990:9990"
+    depends_on:
+      - postgres
     environment:
       DB_VENDOR: postgres
       DB_ADDR: postgres
