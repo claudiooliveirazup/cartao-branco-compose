@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose -f compose/nosso_cartao.yaml up
+docker-compose -f compose/nosso_cartao.yaml start
