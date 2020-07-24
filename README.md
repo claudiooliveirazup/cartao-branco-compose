@@ -46,3 +46,4 @@ ou
 
 * Configurar Prometheus
 * Configurar Grafana
+* Fix Keycloak
