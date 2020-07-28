@@ -118,8 +118,11 @@ services:
     image: grafana/grafana
     volumes:
       - grafana-volume:/var/lib/grafana
+      - ./grafana/:/etc/grafana/provisioning/
     ports:
       - 3000:3000
+    depends_on:
+      - prometheus
 
 volumes:
   grafana-volume:
