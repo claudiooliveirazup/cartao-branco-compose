@@ -41,9 +41,3 @@ Para desfazer o ambiente, execute o script:
 ou
 
 `docker-compose -f compose/nosso_cartao.yaml down`
-
-# TO-DO
-
-* Configurar Prometheus
-* Configurar Grafana
-* Fix Keycloak
