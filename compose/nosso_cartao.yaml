@@ -11,7 +11,7 @@ services:
   kafka:
     image: "confluentinc/cp-kafka:5.2.1"
     ports:
-      - "9092:9092"
+      - 9092:9092
     depends_on:
       - zookeeper
     environment:
@@ -25,7 +25,7 @@ services:
   postgres:
     image: 'postgres:alpine'
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - postgres-volume:/var/lib/postgresql/data
     restart: 'always'
     ports:
       - 5432:5432
@@ -38,9 +38,9 @@ services:
   keycloak:
     image: jboss/keycloak
     ports:
-    - "18443:8443"
-    - "18080:8080"
-    - "19990:9990"
+      - 18443:8443
+      - 18080:8080
+      - 19990:9990
     depends_on:
       - postgres
     environment:
@@ -60,7 +60,7 @@ services:
     image: 'zupacademy/analise-financeira'
     restart: 'always'
     ports:
-    - 9999:9999
+      - 9999:9999
     environment:
       SERVER_PORT: 9999
       LOG_LEVEL: DEBUG
@@ -70,7 +70,7 @@ services:
     image: 'zupacademy/contas'
     restart: 'always'
     ports:
-    - 8888:8888
+      - 8888:8888
     environment:
       SERVER_PORT: 8888
       LOG_LEVEL: INFO
@@ -79,7 +79,7 @@ services:
     image: 'zupacademy/transacoes'
     restart: 'always'
     ports:
-    - 7777:7777
+      - 7777:7777
     depends_on:
       - kafka
     environment:
@@ -91,34 +91,32 @@ services:
     image: jaegertracing/all-in-one
     restart: always
     ports:
-    - 5775:5775/udp
-    - 6831:6831/udp
-    - 6832:6832/udp
-    - 5778:5778
-    - 16686:16686
-    - 14268:14268
-    - 14250:14250
-    - 9411:9411
+      - 5775:5775/udp
+      - 6831:6831/udp
+      - 6832:6832/udp
+      - 5778:5778
+      - 16686:16686
+      - 14268:14268
+      - 14250:14250
+      - 9411:9411
     environment:
       COLLECTOR_ZIPKIN_HTTP_PORT: 9411
 
   prometheus:
     image: prom/prometheus
-    container_name: prometheus
     #volumes:
     #  - path/to-your/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
-      - "9090:9090"
+      - 9090:9090
 
   grafana:
     image: grafana/grafana
-    container_name: grafana
+    volumes:
+      - grafana-volume:/var/lib/grafana
     ports:
-      - "3000:3000"
-    #volumes:
-    #  - path/to-your/grafana.ini:/etc/grafana/grafana.ini
-    # - path/to-your/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - 3000:3000
 
 volumes:
-  postgres_data:
-    driver: local
+  grafana-volume:
+  prometheus-volume:
+  postgres-volume:
