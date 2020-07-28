@@ -19,11 +19,11 @@ scrape_configs:
     static_configs:
       - targets: ['127.0.0.1:9090']
 
-  - job_name: 'analise_financeira'
+  - job_name: 'analise'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-      - targets: ['analise_financeira:9999']
+      - targets: ['analise:9999']
 
   - job_name: 'contas'
     metrics_path: '/actuator/prometheus'
