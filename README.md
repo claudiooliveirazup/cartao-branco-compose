@@ -45,4 +45,3 @@ ou
 # TODO
 
 Fix keycloak
-Fix contas prometheus
