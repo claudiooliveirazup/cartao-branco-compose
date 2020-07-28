@@ -63,7 +63,7 @@ services:
       - 9999:9999
     environment:
       SERVER_PORT: 9999
-      LOG_LEVEL: DEBUG
+      LOG_LEVEL: INFO
       URL_SISTEMA_CARTAO: http://contas:8888/api/cartoes
 
   contas:
@@ -104,10 +104,15 @@ services:
 
   prometheus:
     image: prom/prometheus
-    #volumes:
-    #  - path/to-your/prometheus.yml:/etc/prometheus/prometheus.yml
+    volumes:
+     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+     - prometheus-volume:/etc/prometheus/
     ports:
       - 9090:9090
+    depends_on:
+      - analise_financeira
+      - contas
+      - transacoes
 
   grafana:
     image: grafana/grafana

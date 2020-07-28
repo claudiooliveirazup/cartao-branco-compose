@@ -23,16 +23,16 @@ scrape_configs:
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-      - targets: ['127.0.0.1:9999']
+      - targets: ['analise_financeira:9999']
 
   - job_name: 'contas'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-      - targets: ['127.0.0.1:8888']
+      - targets: ['contas:8888']
 
   - job_name: 'transacoes'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-      - targets: ['127.0.0.1:7777']
+      - targets: ['transacoes:7777']
