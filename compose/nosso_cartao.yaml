@@ -42,6 +42,15 @@ services:
       - 18080:8080
       - 19990:9990
     depends_on:
+      # Just a delay to wait for postgres! This is not recommended!
+      - grafana
+      - prometheus
+      - jaeger
+      - kafka
+      - zookeeper
+      - contas
+      - analise
+      - transacoes
       - postgres
     environment:
       DB_VENDOR: postgres
