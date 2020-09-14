@@ -18,7 +18,6 @@ Para iniciar os serviços, execute o script:
 
 Para parar os serviços, execute o script:
 
-
 `docker-compose -f compose/nosso_cartao.yaml stop`
 
 ## Cleanup
