@@ -46,6 +46,7 @@ services:
       SERVER_PORT: 9999
       LOG_LEVEL: INFO
       URL_SISTEMA_CARTAO: http://contas:8888/api/cartoes
+      JAEGER_ENDPOINT: "http://jaeger:14268/api/traces"
 
   contas:
     image: 'zupacademy/contas'
@@ -54,6 +55,7 @@ services:
     environment:
       SERVER_PORT: 8888
       LOG_LEVEL: INFO
+      JAEGER_ENDPOINT: http://jaeger:14268/api/traces
 
   jaeger:
     image: jaegertracing/all-in-one
