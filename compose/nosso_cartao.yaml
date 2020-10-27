@@ -111,6 +111,7 @@ services:
     image: prom/prometheus
     volumes:
      - prometheus-volume:/etc/prometheus/
+     - ./prometheus.yml:/etc/prometheus/prometheus.yml
     network_mode: host
     expose:
       - 9090
