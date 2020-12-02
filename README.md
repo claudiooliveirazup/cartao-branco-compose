@@ -6,22 +6,22 @@ Projeto que contém todos os serviços necessário para o Bootcamp.
 
 Para fazer o setup do ambiente, execute o script:
 
-`docker-compose -f compose/nosso_cartao.yaml up`
+`docker-compose up -d`
 
 ## Start
 
 Para iniciar os serviços, execute o script:
 
-`docker-compose -f compose/nosso_cartao.yaml start`
+`docker-compose start`
 
 ## Stop
 
 Para parar os serviços, execute o script:
 
-`docker-compose -f compose/nosso_cartao.yaml stop`
+`docker-compose stop`
 
 ## Cleanup
 
 Para desfazer o ambiente, execute o script:
 
-`docker-compose -f compose/nosso_cartao.yaml down`
+`docker-compose down`
