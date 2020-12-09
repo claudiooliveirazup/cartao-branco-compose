@@ -101,7 +101,7 @@ services:
       JAEGER_ENDPOINT: http://jaeger:14268/api/traces
 
   jaeger:
-    image: jaegertracing/all-in-one
+    image: jaegertracing/all-in-one:1.21.0
     network_mode: bridge
     ports:
       - 5775:5775/udp
