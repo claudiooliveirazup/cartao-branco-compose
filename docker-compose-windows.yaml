@@ -38,7 +38,7 @@ services:
       POSTGRES_HOST: postgres
 
   keycloak:
-    image: jboss/keycloak
+    image: jboss/keycloak:11.0.0
     network_mode: bridge
     ports:
       - 18443:8443
