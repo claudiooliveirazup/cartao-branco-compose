@@ -3,7 +3,6 @@ services:
 
   zookeeper:
     image: "confluentinc/cp-zookeeper:5.2.1"
-    network_mode: bridge
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -11,7 +10,6 @@ services:
 
   kafka:
     image: "confluentinc/cp-kafka:5.2.1"
-    network_mode: bridge
     ports:
       - 9092:9092
     depends_on:
@@ -26,7 +24,6 @@ services:
 
   postgres:
     image: 'postgres:9.6-alpine'
-    network_mode: bridge
     volumes:
       - postgres-volume:/var/lib/postgresql/data
     ports:
@@ -39,7 +36,6 @@ services:
 
   keycloak:
     image: jboss/keycloak:11.0.0
-    network_mode: bridge
     ports:
       - 18443:8443
       - 18080:8080
@@ -69,7 +65,6 @@ services:
 
   analise:
     image: 'zupacademy/analise-financeira'
-    network_mode: bridge
     ports:
       - 9999:9999
     environment:
@@ -80,7 +75,6 @@ services:
 
   contas:
     image: 'zupacademy/contas'
-    network_mode: bridge
     ports:
       - 8888:8888
     environment:
@@ -90,7 +84,6 @@ services:
 
   transacoes:
     image: 'zupacademy/transacoes'
-    network_mode: bridge
     ports:
       - 7777:7777
     depends_on:
@@ -103,7 +96,6 @@ services:
 
   jaeger:
     image: jaegertracing/all-in-one:1.21.0
-    network_mode: bridge
     ports:
       - 5775:5775/udp
       - 6831:6831/udp
@@ -118,7 +110,6 @@ services:
 
   prometheus:
     image: prom/prometheus:v2.22.0
-    network_mode: bridge
     volumes:
     #  - ./prometheus.yml:/etc/prometheus/prometheus.yml
      - prometheus-volume:/etc/prometheus/
@@ -127,7 +118,6 @@ services:
 
   grafana:
     image: grafana/grafana:7.3.4
-    network_mode: bridge
     volumes:
       - grafana-volume:/var/lib/grafana
     ports:
@@ -137,7 +127,6 @@ services:
 
   vault:
     image: vault:1.5.3
-    network_mode: bridge
     ports:
       - 8200:8200
     environment:
